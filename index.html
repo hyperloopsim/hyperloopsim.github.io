@@ -34,7 +34,7 @@
 
         geometry = new THREE.BoxGeometry( 200, 200, 200 );
         
-        var txtr = new THREE.ImageUtils.loadTexture('crate.gif');
+        var txtr = new THREE.ImageUtils.loadTexture('building.jpg');
         
         material = new THREE.MeshBasicMaterial( { map:txtr } );
 
@@ -61,8 +61,8 @@
         requestAnimationFrame( animate );
 
 
-        mesh.rotation.x += 0.01;
-        mesh.rotation.y += 0.02;
+        //mesh.rotation.x += 0.01;
+        //mesh.rotation.y += 0.02;
 
 
         renderer.render( scene, camera );
