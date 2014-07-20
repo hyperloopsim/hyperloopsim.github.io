@@ -49,6 +49,9 @@
         scene.add( mesh );
 
 
+        ground.rotation.x = 90 * Math.PI / 180;
+        mesh.position.y = 300;
+
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
 
