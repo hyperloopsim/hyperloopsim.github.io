@@ -31,6 +31,11 @@
         return material;
     }
     
+    function createGeometry(stories) {
+       geometry = new THREE.BoxGeometry( 200, 200*stories, 200 );
+       return geometry;
+    }
+    
     function init() {
 
 
@@ -41,7 +46,6 @@
         camera.position.z = 1000;
 
 
-        geometry = new THREE.BoxGeometry( 200, 600, 200 );
         groundGeom = new THREE.PlaneGeometry(1000,2000);
         
         var groundTxtr = new THREE.ImageUtils.loadTexture('ground.jpg');
@@ -55,10 +59,10 @@
 
         for(var i = 0; i < 4; i++) {
             var stories = Math.floor((Math.random() * 5) + 2);
-            mesh = new THREE.Mesh( geometry, createMaterial(stories) );
+            mesh = new THREE.Mesh( createGeometry(stories), createMaterial(stories) );
             scene.add( mesh );
             mesh.position.z = -600*i;
-            mesh.position.y = 300;
+            mesh.position.y = stories*100;
         }
         
 
