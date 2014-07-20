@@ -22,12 +22,13 @@
     animate();
 
 
-    function createTxtr(stories) {
+    function createMaterial(stories) {
         var txtr = new THREE.ImageUtils.loadTexture('building.jpg');
         txtr.wrapS = txtr.wrapT = THREE.RepeatWrapping;
         txtr.repeat.set( 1, stories ); 
       
-        return txtr;
+        material = new THREE.MeshBasicMaterial( { map:txtr } );
+        return material;
     }
     
     function init() {
@@ -47,14 +48,14 @@
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
         groundTxtr.repeat.set( 1, 2 );
         
-        material = new THREE.MeshBasicMaterial( { map:createTxtr(3) } );
         groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
 
-        for(var i = 0; i < 3; i++) {
-            mesh = new THREE.Mesh( geometry, material );
+        for(var i = 0; i < 4; i++) {
+            var stories = Math.floor((Math.random() * 5) + 2);
+            mesh = new THREE.Mesh( geometry, createMaterial(stories) );
             scene.add( mesh );
             mesh.position.z = -600*i;
             mesh.position.y = 300;
