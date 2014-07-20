@@ -53,15 +53,17 @@
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
 
-        for(var i = 1; i++; i < 2) {
+        for(var i = 1; i < 3; i++) {
             mesh = new THREE.Mesh( geometry, material );
             scene.add( mesh );
+            mesh.position.z = -600*i;
+            mesh.position.y = 300;
         }
         
 
 
         ground.rotation.x = -90 * Math.PI / 180;
-        mesh.position.y = 300;
+        
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
