@@ -40,7 +40,7 @@
         txtr.repeat.set( 1, 3 );
         
         material = new THREE.MeshBasicMaterial( { map:txtr } );
-        groundMat = new THREE.MeshBasicMaterial( color: 0x00ff00, wireframe: true );
+        groundMat = new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
