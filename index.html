@@ -33,9 +33,9 @@
 
         geometry = new THREE.BoxGeometry( 200, 200, 200 );
         
-        var txtr = new THREE.ImageUtils.loadTexture('http://www.html5canvastutorials.com/demos/assets/crate.jpg');
+        var txtr = new THREE.ImageUtils.loadTexture('crate.gif');
         
-        material = new THREE.MeshBasicMaterial( { color:0xff0000, wireframe:true } );
+        material = new THREE.MeshBasicMaterial( { map:txtr } );
 
 
         mesh = new THREE.Mesh( geometry, material );
