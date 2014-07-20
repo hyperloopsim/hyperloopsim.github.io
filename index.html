@@ -41,11 +41,11 @@
 
 
         geometry = new THREE.BoxGeometry( 200, 600, 200 );
-        groundGeom = new THREE.PlaneGeometry(800,800);
+        groundGeom = new THREE.PlaneGeometry(1000,2000);
         
         var groundTxtr = new THREE.ImageUtils.loadTexture('ground.jpg');
-        //groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
-        //groundTxtr.repeat.set( 1, 1 );
+        groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
+        groundTxtr.repeat.set( 1, 2 );
         
         material = new THREE.MeshBasicMaterial( { map:createTxtr(3) } );
         groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
