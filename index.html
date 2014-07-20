@@ -47,13 +47,13 @@
         //groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
         //groundTxtr.repeat.set( 1, 1 );
         
-        material = new THREE.MeshBasicMaterial( { map:createTxtr(4) } );
+        material = new THREE.MeshBasicMaterial( { map:createTxtr(3) } );
         groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
 
-        for(var i = 1; i < 3; i++) {
+        for(var i = 0; i < 3; i++) {
             mesh = new THREE.Mesh( geometry, material );
             scene.add( mesh );
             mesh.position.z = -600*i;
