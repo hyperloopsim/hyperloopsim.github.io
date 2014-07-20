@@ -10,45 +10,64 @@
   </head>
   <body>
     <div id="container"></div>
-    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/threejs/r67/three.min.js"></script>
     <script defer="defer">
       
     var scene, camera, renderer;
     var geometry, material, mesh;
 
+
     init();
     animate();
 
+
     function init() {
 
+
         scene = new THREE.Scene();
+
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
         camera.position.z = 1000;
 
+
         geometry = new THREE.BoxGeometry( 200, 200, 200 );
-        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+        
+        var txtr = new THREE.ImageUtils.loadTexture('http://www.html5canvastutorials.com/demos/assets/crate.jpg');
+        
+        material = new THREE.MeshBasicMaterial( { color:0xff0000, wireframe:true } );
+
 
         mesh = new THREE.Mesh( geometry, material );
         scene.add( mesh );
 
-        renderer = new THREE.CanvasRenderer();
+
+        renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
+
 
         document.body.appendChild( renderer.domElement );
 
+
     }
+
 
     function animate() {
 
+
         requestAnimationFrame( animate );
+
 
         mesh.rotation.x += 0.01;
         mesh.rotation.y += 0.02;
 
+
         renderer.render( scene, camera );
 
+
     }
+
+
 
 
     </script>
