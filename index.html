@@ -46,13 +46,13 @@
         camera.position.z = 1000;
 
 
-        groundGeom = new THREE.PlaneGeometry(1000,2000);
+        groundGeom = new THREE.PlaneGeometry(10000,10000);
         
         var groundTxtr = new THREE.ImageUtils.loadTexture('ground.jpg');
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
         groundTxtr.repeat.set( 1, 2 );
         
-        groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
+        groundMat = new THREE.MeshBasicMaterial( { color: 0x996633/*map:groundTxtr*/ } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
