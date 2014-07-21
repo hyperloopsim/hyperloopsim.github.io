@@ -50,9 +50,9 @@
         
         var groundTxtr = new THREE.ImageUtils.loadTexture('ground.jpg');
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
-        groundTxtr.repeat.set( 1, 2 );
+        groundTxtr.repeat.set( 10, 10 );
         
-        groundMat = new THREE.MeshBasicMaterial( { color: 0x996633/*map:groundTxtr*/ } );
+        groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
