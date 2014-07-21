@@ -32,7 +32,7 @@
     }
     
     function createGeometry(stories) {
-       geometry = new THREE.BoxGeometry( 200, 200*stories, 200 );
+       geometry = new THREE.BoxGeometry( 20, 20*stories, 20 );
        return geometry;
     }
     
@@ -42,11 +42,11 @@
         scene = new THREE.Scene();
 
 
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-        camera.position.z = 1000;
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 15000 );
+        camera.position.z = 50;
 
 
-        groundGeom = new THREE.PlaneGeometry(100000,100000);
+        groundGeom = new THREE.PlaneGeometry(10000,10000);
         
         var groundTxtr = new THREE.ImageUtils.loadTexture('ground.jpg');
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
@@ -61,8 +61,8 @@
             var stories = Math.floor((Math.random() * 5) + 2);
             mesh = new THREE.Mesh( createGeometry(stories), createMaterial(stories) );
             scene.add( mesh );
-            mesh.position.z = -600*i;
-            mesh.position.y = stories*100;
+            mesh.position.z = -60*i;
+            mesh.position.y = stories*10;
         }
         
         ground.rotation.x = -90 * Math.PI / 180;
@@ -70,7 +70,7 @@
         var imagePrefix = "";
       	var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
       	var imageSuffix = ".jpg";
-      	var skyGeometry = new THREE.CubeGeometry( 100000, 100000, 100000 );	
+      	var skyGeometry = new THREE.CubeGeometry( 10000, 10000, 10000 );	
       	
       	var materialArray = [];
       	for (var i = 0; i < 6; i++)
