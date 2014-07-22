@@ -169,7 +169,7 @@
       	var loader = new THREE.OBJLoader();
         loader.load( 'sled.obj', function ( geometry ) {
           object = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial() );
-          mobject.scale.set( 1000, 1000, 1000 );
+          object.scale.set( 1000, 1000, 1000 );
           object.position.y = 15;
           scene.add(object);
         } );
