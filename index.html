@@ -106,7 +106,7 @@
     
     function createRoad() {
         var roadGeom = new THREE.PlaneGeometry(16,16);
-        var roadTxtr = new THREE.ImageUtils.loadTexture('road.png');
+        var roadTxtr = new THREE.ImageUtils.loadTexture('roadLarge.png');
         var roadMat = new THREE.MeshBasicMaterial( { map: roadTxtr } );
         
         var road = new THREE.Mesh( roadGeom, roadMat );
