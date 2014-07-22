@@ -165,6 +165,11 @@
           scene.add(road);
         }
         
+      	var loader = new THREE.OBJLoader();
+        loader.load( 'sled.obj', function ( object ) {
+          scene.add( object );
+        } );
+          
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
