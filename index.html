@@ -104,6 +104,16 @@
         return support;
     }
     
+    function createRoad() {
+        var roadGeom = new THREE.PlaneGeometry(4,4);
+        var roadMat = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+        
+        var road = new THREE.Mesh( roadGeom, roadMat );
+        road.position.x = 6;
+        road.position.y = 0.1;
+        return road;
+    }
+    
     
     function init() {
 
@@ -138,7 +148,7 @@
         
         ground.rotation.x = -90 * Math.PI / 180;
         
-        skyBox = createSky();
+        var skyBox = createSky();
         scene.add( skyBox );
         
         for(var i = 0; i<10; i++) {
@@ -149,6 +159,8 @@
         }
         
         
+        var road = createRoad();
+        scene.add(road);
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
