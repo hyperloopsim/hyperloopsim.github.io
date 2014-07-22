@@ -77,10 +77,12 @@
 
         for(var i = 0; i < 4; i++) {
             var stories = Math.floor((Math.random() * 5) + 2);
+            var side = Math.floor((Math.random() * 1) + 0);
             mesh = new THREE.Mesh( createGeometry(stories), createMaterial(stories) );
             scene.add( mesh );
-            mesh.position.z = -60*i;
+            mesh.position.z = -200*i;
             mesh.position.y = stories*10;
+            mesh.position.x = -100 + 200*side;
         }
         
         ground.rotation.x = -90 * Math.PI / 180;
