@@ -105,13 +105,13 @@
     }
     
     function createRoad() {
-        var roadGeom = new THREE.PlaneGeometry(4,4);
+        var roadGeom = new THREE.PlaneGeometry(16,16);
         var roadTxtr = new THREE.ImageUtils.loadTexture('road.png');
         var roadMat = new THREE.MeshBasicMaterial( { map: roadTxtr } );
         
         var road = new THREE.Mesh( roadGeom, roadMat );
         road.rotation.x = -Math.PI / 2;
-        road.position.x = 6;
+        road.position.x = 30;
         road.position.y = 0.1;
         return road;
     }
@@ -157,9 +157,13 @@
           support = createSupport();
           support.position.z = -100*i;
           scene.add(support);
-          
         }
         
+        for(var i = 0; i<100; i++) {
+          var road = createRoad();
+          road.position.z = -16*i;
+          scene.add(road);
+        }
         
         var road = createRoad();
         scene.add(road);
