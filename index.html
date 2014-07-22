@@ -32,8 +32,26 @@
     }
     
     function createGeometry(stories) {
-       geometry = new THREE.BoxGeometry( 20, 20*stories, 20 );
-       return geometry;
+        geometry = new THREE.BoxGeometry( 20, 20*stories, 20 );
+        return geometry;
+    }
+    
+    function createSky() {
+        var imagePrefix = "";
+        var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
+        var imageSuffix = ".jpg";
+        var skyGeometry = new THREE.CubeGeometry( 10000, 10000, 10000 );	
+        
+        var materialArray = [];
+        for (var i = 0; i < 6; i++)
+        	materialArray.push( new THREE.MeshBasicMaterial({
+        		map: THREE.ImageUtils.loadTexture( imagePrefix + directions[i] + imageSuffix ),
+        		side: THREE.BackSide
+        	}));
+        var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
+        var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
+        return skyBox;
+      
     }
     
     function init() {
@@ -67,20 +85,8 @@
         
         ground.rotation.x = -90 * Math.PI / 180;
         
-        var imagePrefix = "";
-      	var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
-      	var imageSuffix = ".jpg";
-      	var skyGeometry = new THREE.CubeGeometry( 10000, 10000, 10000 );	
-      	
-      	var materialArray = [];
-      	for (var i = 0; i < 6; i++)
-      		materialArray.push( new THREE.MeshBasicMaterial({
-      			map: THREE.ImageUtils.loadTexture( imagePrefix + directions[i] + imageSuffix ),
-      			side: THREE.BackSide
-      		}));
-      	var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
-      	var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
-      	scene.add( skyBox );
+        skyBox = createSkybox();
+        scene.add( skyBox );
         
 
         renderer = new THREE.WebGLRenderer();
