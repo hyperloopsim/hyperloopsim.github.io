@@ -54,7 +54,7 @@
         return skyBox;
     }
     
-    function createTube() {
+    function createRing() {
         // Cylinder constructor parameters:  
         // radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight
 
@@ -66,12 +66,12 @@
         var intersectionBSP = largeCylinderBSP.subtract(smallCylinderBSP);      
         
         var redMaterial = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
-        var hollowCylinder = intersectionBSP.toMesh( redMaterial );
+        var ring = intersectionBSP.toMesh( redMaterial );
         
-        hollowCylinder.rotation.x = Math.PI / 2;
-        hollowCylinder.position.y = 10;
+        ring.rotation.x = Math.PI / 2;
+        ring.position.y = 10;
         
-        return hollowCylinder;
+        return ring;
       
     }
     
@@ -85,14 +85,25 @@
       
     }
     
+    function createTube() {
+        var tubeGeom = new THREE.CylinderGeometry( 2, 2, 100, 32 );
+        var tubeMat = new THREE.MeshBasicMaterial( { color: 0x0db7ff } );
+        
+        var tube = new THREE.Mesh( tubeGeom, tubeMat );
+        tube.rotation.x = Math.PI / 2;
+        tube.position.y = 10;
+        return tube;
+    }
+    
     function createSupport() {
       
         var support = new THREE.Object3D();
-        support.add(createTube());
+        support.add(createRing());
         support.add(createPillar());
-        
+        support.add(createtube());
         return support;
     }
+    
     
     function init() {
 
