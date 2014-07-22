@@ -57,16 +57,16 @@
     
     function createTube() {
         // Cylinder constructor parameters:  
-// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight
+        // radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight
 
-        var smallCylinderGeom = new THREE.CylinderGeometry( 30, 30, 80, 20, 4 );
-        var largeCylinderGeom = new THREE.CylinderGeometry( 40, 40, 80, 20, 4 );
+        var smallCylinderGeom = new THREE.CylinderGeometry( 2, 2, 1, 20, 4 );
+        var largeCylinderGeom = new THREE.CylinderGeometry( 2.1, 2.1, 1, 20, 4 );
         
         var smallCylinderBSP = new ThreeBSP(smallCylinderGeom);
         var largeCylinderBSP = new ThreeBSP(largeCylinderGeom);
         var intersectionBSP = largeCylinderBSP.subtract(smallCylinderBSP);      
         
-        var redMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+        var redMaterial = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
         var hollowCylinder = intersectionBSP.toMesh( redMaterial );
         return hollowCylinder;
       
@@ -110,6 +110,8 @@
         
         hollowCylinder = createTube();
         scene.add( hollowCylinder );
+        hollowCylinder.rotation.x = Math.PI / 2;
+        hollowCylinder.position.y = 5;
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
