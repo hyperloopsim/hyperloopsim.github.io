@@ -67,17 +67,31 @@
         
         var redMaterial = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
         var hollowCylinder = intersectionBSP.toMesh( redMaterial );
+        
+        hollowCylinder.rotation.x = Math.PI / 2;
+        hollowCylinder.position.y = 10;
+        
         return hollowCylinder;
       
     }
     
-    function createSupport() {
-        var supportGeom = new THREE.CylinderGeometry( 0.5, 1.5, 8, 32 );
-        var supportMat = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
+    function createPillar() {
+        var pillarGeom = new THREE.CylinderGeometry( 0.5, 1.5, 8, 32 );
+        var pillarMat = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
         
-        var support = new THREE.Mesh( supportGeom, supportMat );
-        return support;
+        var pillar = new THREE.Mesh( pillarGeom, pillarMat );
+        pillar.position.y = 4;
+        return pillar;
       
+    }
+    
+    function createSupport() {
+      
+        var support = new THREE.Object3D();
+        support.add(createTube());
+        support.add(createPillar());
+        
+        return support;
     }
     
     function init() {
@@ -116,14 +130,9 @@
         skyBox = createSky();
         scene.add( skyBox );
         
-        hollowCylinder = createTube();
-        scene.add( hollowCylinder );
-        hollowCylinder.rotation.x = Math.PI / 2;
-        hollowCylinder.position.y = 10;
-        
         support = createSupport();
         scene.add(support);
-        support.position.y = 4;
+        
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
