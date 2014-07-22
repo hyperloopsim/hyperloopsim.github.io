@@ -87,7 +87,7 @@
     
     function createTube() {
         var tubeGeom = new THREE.CylinderGeometry( 2, 2, 100, 32 );
-        var tubeMat = new THREE.MeshBasicMaterial( { color: 0x0db7ff } );
+        var tubeMat = new THREE.MeshBasicMaterial( { color: 0x0db7ff, transparent: true, opacity: 0.5 } );
         
         var tube = new THREE.Mesh( tubeGeom, tubeMat );
         tube.rotation.x = Math.PI / 2;
@@ -165,8 +165,6 @@
           scene.add(road);
         }
         
-        var road = createRoad();
-        scene.add(road);
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
