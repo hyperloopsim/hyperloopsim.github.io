@@ -106,7 +106,8 @@
     
     function createRoad() {
         var roadGeom = new THREE.PlaneGeometry(4,4);
-        var roadMat = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+        var roadTxtr = new THREE.ImageUtils.loadTexture('road.png');
+        var roadMat = new THREE.MeshBasicMaterial( { map: roadTxtr } );
         
         var road = new THREE.Mesh( roadGeom, roadMat );
         road.rotation.x = -Math.PI / 2;
