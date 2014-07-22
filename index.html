@@ -52,7 +52,6 @@
         var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
         var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
         return skyBox;
-      
     }
     
     function createTube() {
@@ -69,6 +68,15 @@
         var redMaterial = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
         var hollowCylinder = intersectionBSP.toMesh( redMaterial );
         return hollowCylinder;
+      
+    }
+    
+    function createSupport() {
+        var supportGeom = new THREE.CylinderGeometry( 2, 1.5, 5, 32 );
+        var supportMat = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
+        
+        var support = new THREE.Mesh( supportGeom, supportMat );
+        return support;
       
     }
     
@@ -112,6 +120,10 @@
         scene.add( hollowCylinder );
         hollowCylinder.rotation.x = Math.PI / 2;
         hollowCylinder.position.y = 5;
+        
+        support = createSupport();
+        scene.add(support);
+        support.position.y = 2.5;
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
