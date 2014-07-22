@@ -86,7 +86,7 @@
     }
     
     function createTube() {
-        var tubeGeom = new THREE.CylinderGeometry( 2, 2, 100, 32 );
+        var tubeGeom = new THREE.CylinderGeometry( 2, 2, 99.99, 32 );
         var tubeMat = new THREE.MeshBasicMaterial( { color: 0x0db7ff, transparent: true, opacity: 0.5 } );
         
         var tube = new THREE.Mesh( tubeGeom, tubeMat );
