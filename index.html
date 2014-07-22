@@ -58,8 +58,8 @@
         // Cylinder constructor parameters:  
         // radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight
 
-        var smallCylinderGeom = new THREE.CylinderGeometry( 2, 2, 1, 20, 4 );
-        var largeCylinderGeom = new THREE.CylinderGeometry( 2.1, 2.1, 1, 20, 4 );
+        var smallCylinderGeom = new THREE.CylinderGeometry( 4, 4, 1, 20, 4 );
+        var largeCylinderGeom = new THREE.CylinderGeometry( 4.2, 4.2, 1, 20, 4 );
         
         var smallCylinderBSP = new ThreeBSP(smallCylinderGeom);
         var largeCylinderBSP = new ThreeBSP(largeCylinderGeom);
@@ -72,7 +72,7 @@
     }
     
     function createSupport() {
-        var supportGeom = new THREE.CylinderGeometry( 2, 1.5, 5, 32 );
+        var supportGeom = new THREE.CylinderGeometry( 0.5, 1.5, 4, 32 );
         var supportMat = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
         
         var support = new THREE.Mesh( supportGeom, supportMat );
@@ -119,11 +119,11 @@
         hollowCylinder = createTube();
         scene.add( hollowCylinder );
         hollowCylinder.rotation.x = Math.PI / 2;
-        hollowCylinder.position.y = 5;
+        hollowCylinder.position.y = 6;
         
         support = createSupport();
         scene.add(support);
-        support.position.y = 2.5;
+        support.position.y = 2;
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
