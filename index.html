@@ -141,8 +141,13 @@
         skyBox = createSky();
         scene.add( skyBox );
         
-        support = createSupport();
-        scene.add(support);
+        for(int i = 0; i<10; i++) {
+          support = createSupport();
+          support.postition.z = -100*i;
+          scene.add(support);
+          
+        }
+        
         
 
         renderer = new THREE.WebGLRenderer();
