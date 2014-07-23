@@ -39,7 +39,6 @@
     }
     
     function createSky() {
-    	
         var imagePrefix = "";
         var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
         var imageSuffix = ".jpg";
@@ -53,8 +52,8 @@
         	}));
         var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
         var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
-        scene.add(skyBox);
-        
+        return skyBox;
+    }
     
     function createRing() {
         // Cylinder constructor parameters:  
@@ -135,7 +134,7 @@
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
         groundTxtr.repeat.set( 1000, 1000 );
         
-        groundMat = new THREE.MeshBasicMaterial( { /*map:groundTxtr*/ color: 0x00ff00 } );
+        groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
@@ -152,7 +151,8 @@
         
         ground.rotation.x = -90 * Math.PI / 180;
         
-	createSky();
+        var skyBox = createSky();
+        scene.add( skyBox );
         
         for(var i = 0; i<10; i++) {
           support = createSupport();
@@ -178,14 +178,16 @@
         });
         //plane.position.y = 15;
         //plane.scale.set(2,2,2);
-        
+
+   	
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
+
 
         document.body.appendChild( renderer.domElement );
         
         controls = new THREE.OrbitControls(camera, renderer.domElement);
-   
+
 
     }
 
@@ -198,7 +200,7 @@
 
         //mesh.rotation.x += 0.01;
         //mesh.rotation.y += 0.02;
-	//plane.position.z -= 0.5;
+	plane.position.z -= 0.5;
 
         renderer.render( scene, camera );
 
