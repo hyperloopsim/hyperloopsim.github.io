@@ -82,6 +82,7 @@
         pillarMat.ambient.copy( pillarMat.color );
         
         var pillar = new THREE.Mesh( pillarGeom, pillarMat );
+        pillar.castShadow = true;
         pillar.position.y = 4;
         return pillar;
       
@@ -131,6 +132,7 @@
 	scene.add( new THREE.AmbientLight( 0x222222 ) );
 	var light = new THREE.DirectionalLight(0xffffff, 1.5);
 	light.position.set(-5000,5000,-5000);
+	light.castShadow = true;
 	scene.add(light);
 	
         groundGeom = new THREE.PlaneGeometry(10000,10000);
@@ -142,6 +144,7 @@
         groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
+        ground.receiveShadow = true;
         scene.add(ground);
 
         for(var i = 0; i < 1; i++) {
@@ -186,6 +189,7 @@
 
    	
         renderer = new THREE.WebGLRenderer();
+        renderer.shadowMapEnabled = true;
         renderer.setSize( window.innerWidth, window.innerHeight );
 
 
