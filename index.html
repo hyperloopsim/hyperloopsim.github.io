@@ -167,17 +167,17 @@
         }
         
       	var loader = new THREE.STLLoader();
-				loader.addEventListener( 'load', function ( event ) {
+	loader.addEventListener( 'load', function ( event ) {
 
-					var geometry = event.content;
-					var material = new THREE.MeshNormalMaterial();
-					var mesh = new THREE.Mesh( geometry, material );
-          mesh.position.y = 15;
+		var geometry = event.content;
+		var material = new THREE.MeshBasicMaterial({color:0xff0000});
+		var sled = new THREE.Mesh( geometry, material );
+		sled.position.y = 15;
 
-					scene.add( mesh );
+		scene.add( mesh );
 
-				} );
-				loader.load( 'sled.stl' );
+	} );
+	loader.load( 'sled.stl' );
           
 
         renderer = new THREE.WebGLRenderer();
