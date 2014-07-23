@@ -78,7 +78,8 @@
     
     function createPillar() {
         var pillarGeom = new THREE.CylinderGeometry( 0.5, 1.5, 8, 32 );
-        var pillarMat = new THREE.MeshBasicMaterial( { color: 0x8e95b2 } );
+        var pillarMat = new THREE.MeshLambertMaterial( { color: 0x8e95b2 } );
+        pillarMat.ambient.copy( pillarMat.color );
         
         var pillar = new THREE.Mesh( pillarGeom, pillarMat );
         pillar.position.y = 4;
