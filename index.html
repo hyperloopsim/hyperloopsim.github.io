@@ -167,18 +167,14 @@
         }
         
       	var loader = new THREE.STLLoader();
-	loader.addEventListener( 'load', function ( event ) {
-
-		var geometry = event.content;
-		var material = new THREE.MeshBasicMaterial({color:0xff0000});
-		var head = new THREE.Mesh( geometry, material );
-		head.position.y = 15;
-		head.scale.set(0.1,0.1,0.1);
-
-		scene.add( head );
-
-	} );
-	loader.load( 'head.stl' );
+	var group = new THREE.Object3D();
+        loader.load("head.stl", function (geometry) {
+            console.log(geometry);
+            var mat = new THREE.MeshLambertMaterial({color: 0x7777ff});
+            group = new THREE.Mesh(geometry, mat);
+            group.scale.set(0.6, 0.6, 0.6);
+            scene.add(group);
+        });
           
 
         renderer = new THREE.WebGLRenderer();
