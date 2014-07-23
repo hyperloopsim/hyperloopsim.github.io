@@ -103,7 +103,7 @@
 			skyBoxMaterial
 		);
 		
-		return skyBox;
+		scene.add(skyBox);
     }
     
     function createRing() {
@@ -202,8 +202,7 @@
         
         ground.rotation.x = -90 * Math.PI / 180;
         
-        var skyBox = createSky();
-        scene.add( skyBox );
+	createSky();
         
         for(var i = 0; i<10; i++) {
           support = createSupport();
