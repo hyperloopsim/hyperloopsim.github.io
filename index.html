@@ -169,9 +169,10 @@
         
   
 	loader = new THREE.JSONLoader();
-	loader.load( 'planeGeom.json', function ( geometry ) {
+	loader.load( 'hloop.json', function ( geometry ) {
           	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0x0000ff} ) )
           	scene.add( plane );
+          	plane.position.y = 20;
         });
         //plane.position.y = 15;
         //plane.scale.set(2,2,2);
