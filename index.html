@@ -130,9 +130,9 @@
 
         groundGeom = new THREE.PlaneGeometry(10000,10000);
         
-        var groundTxtr = new THREE.ImageUtils.loadTexture('ground.jpg');
+        var groundTxtr = new THREE.ImageUtils.loadTexture('grass.jpg');
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
-        groundTxtr.repeat.set( 100, 100 );
+        groundTxtr.repeat.set( 1000, 1000 );
         
         groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
         
