@@ -166,13 +166,13 @@
           scene.add(road);
         }
         
-      	var loader = new THREE.OBJLoader();
-        loader.load( 'sled.obj', function ( geometry ) {
-          object = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial() );
-          object.scale.set( 1000, 1000, 1000 );
-          object.position.y = 15;
-          scene.add(object);
-        } );
+      	var loader = new THREE.JSONLoader();
+        loader.load( "treehouse.js", function(geometry){
+        var material = new THREE.MeshNormalMaterial();
+        logo = new THREE.Mesh(geometry, material);
+        scene.add(logo);
+        logo.position.y = 15;
+      });
           
 
         renderer = new THREE.WebGLRenderer();
