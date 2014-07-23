@@ -166,16 +166,15 @@
           scene.add(road);
         }
         
-      	var loader = new THREE.STLLoader();
-	var group = new THREE.Object3D();
-        loader.load("head.stl", function (geometry) {
-            console.log(geometry);
-            var mat = new THREE.MeshLambertMaterial({color: 0x7777ff});
-            group = new THREE.Mesh(geometry, mat);
-            group.scale.set(0.6, 0.6, 0.6);
-            scene.add(group);
-        });
-          
+      	
+       	loader = new THREE.JSONLoader();
+
+	loader.load( "treehouse.js", function( geometry ) {
+		th = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial() );
+		//mesh.scale.set( 10, 10, 10 );
+		th.position.y = 15;
+		scene.add( th );
+	} );  
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
