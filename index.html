@@ -183,7 +183,8 @@
 	
 	loader = new THREE.JSONLoader();
 	loader.load( 'planeGeom.json', function ( geometry ) {
-          	plane = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial( ) );
+          	plane = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial( ) )
+        });
    	scene.add( plane );
 
         renderer = new THREE.WebGLRenderer();
