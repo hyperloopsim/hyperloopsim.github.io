@@ -127,7 +127,10 @@
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 15000 );
         camera.position.z = 50;
 
-
+	var light = new THREE.DirectionalLight(0xffffff, 0.7);
+	light.position.set(-5000,5000,-5000);
+	scene.add(light);
+	
         groundGeom = new THREE.PlaneGeometry(10000,10000);
         
         var groundTxtr = new THREE.ImageUtils.loadTexture('grass.jpg');
