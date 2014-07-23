@@ -175,6 +175,7 @@
           	plane.scale.set(3,3,3);
           	plane.rotation.x = Math.PI/2;
           	plane.position.y = 10;
+          	plane.position.z = 100;
         });
         //plane.position.y = 15;
         //plane.scale.set(2,2,2);
@@ -200,7 +201,7 @@
 
         //mesh.rotation.x += 0.01;
         //mesh.rotation.y += 0.02;
-	plane.position.z -= 2;
+	plane.position.z -= 0.5;
 
         renderer.render( scene, camera );
 
