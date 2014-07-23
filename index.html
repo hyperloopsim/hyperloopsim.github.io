@@ -141,7 +141,7 @@
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
         groundTxtr.repeat.set( 1000, 1000 );
         
-        groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
+        groundMat = new THREE.MeshLambertMaterial( { map:groundTxtr } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         ground.receiveShadow = true;
