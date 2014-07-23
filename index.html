@@ -133,6 +133,7 @@
 	var light = new THREE.DirectionalLight(0xffffff, 1.5);
 	light.position.set(-5000,5000,-5000);
 	light.castShadow = true;
+	light.shadowCameraVisible = true;
 	scene.add(light);
 	
         groundGeom = new THREE.PlaneGeometry(10000,10000);
