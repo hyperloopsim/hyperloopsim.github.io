@@ -13,7 +13,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/threejs/r67/three.min.js"></script>
     <script src="OrbitControls.js"></script>
     <script src="ThreeCSG.js"></script>
-    <script src="OBJLoader.js"></script>
+    <script src="STLLoader.js"></script>
     <script defer="defer">
       
     var scene, camera, renderer;
@@ -166,13 +166,18 @@
           scene.add(road);
         }
         
-      	var loader = new THREE.JSONLoader();
-        loader.load( "treehouse.js", function(geometry){
-        var material = new THREE.MeshNormalMaterial();
-        logo = new THREE.Mesh(geometry, material);
-        scene.add(logo);
-        logo.position.y = 15;
-      });
+      	var loader = new THREE.STLLoader();
+				loader.addEventListener( 'load', function ( event ) {
+
+					var geometry = event.content;
+					var material = new THREE.MeshNormalMaterial();
+					var mesh = new THREE.Mesh( geometry, material );
+          mesh.position.y = 15;
+
+					scene.add( mesh );
+
+				} );
+				loader.load( 'sled.stl' );
           
 
         renderer = new THREE.WebGLRenderer();
