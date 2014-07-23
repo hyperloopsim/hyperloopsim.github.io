@@ -135,7 +135,7 @@
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
         groundTxtr.repeat.set( 1000, 1000 );
         
-        groundMat = new THREE.MeshBasicMaterial( { map:groundTxtr } );
+        groundMat = new THREE.MeshBasicMaterial( { /*map:groundTxtr*/ color: 0x00ff00 } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         scene.add(ground);
@@ -179,11 +179,11 @@
         //plane.position.y = 15;
         //plane.scale.set(2,2,2);
         //SKY
-        /*
+        
         var cubeMap = new THREE.CubeTexture( [] );
 	cubeMap.format = THREE.RGBFormat;
 	cubeMap.flipY = false;
-
+	/*
 	var loader = new THREE.ImageLoader();
 	loader.load( 'skybox.png', function ( image ) {
 
