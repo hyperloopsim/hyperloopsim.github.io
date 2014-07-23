@@ -180,6 +180,14 @@
         //plane.scale.set(2,2,2);
         //SKY
         
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+
+        document.body.appendChild( renderer.domElement );
+        
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        
         var cubeMap = new THREE.CubeTexture( [] );
         /*
 	cubeMap.format = THREE.RGBFormat;
@@ -236,13 +244,7 @@
         
 
    	
-        renderer = new THREE.WebGLRenderer();
-        renderer.setSize( window.innerWidth, window.innerHeight );
-
-
-        document.body.appendChild( renderer.domElement );
         
-        controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 
     }
