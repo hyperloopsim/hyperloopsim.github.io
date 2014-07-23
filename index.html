@@ -167,13 +167,18 @@
         }
         
       	
-       	var loader = new THREE.ObjectLoader();
-	loader.load("plane.json", 
-	    function ( obj ) {
+       	var loader = new THREE.ObjectLoader();/*
+	loader.load("plane.json", function ( obj ) {
 	    	obj.position.y = 15;
 	        scene.add( obj );
 	    }   
-	);
+	);*/
+	
+	loader.load( "plane.json", function(geometry){
+	      var material = new THREE.MeshNormalMaterial();
+	      plane = new THREE.Mesh(geometry, material);
+	      scene.add(plane);
+	});
 
         renderer = new THREE.WebGLRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
