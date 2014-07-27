@@ -135,7 +135,7 @@
 	light.castShadow = true;
 	light.shadowCameraVisible = true;
 	
-	light.shadowCameraNear = 65;
+	light.shadowCameraNear = 60;
 	light.shadowCameraFar = 80;
 	light.shadowCameraLeft = -50;
 	light.shadowCameraRight = 50;
@@ -222,6 +222,7 @@
         //mesh.rotation.y += 0.02;
 	plane.position.z -= 0.5;
 	light.target.position.z -=0.5;
+	light.position.z -=0.5;
 
         renderer.render( scene, camera );
 
