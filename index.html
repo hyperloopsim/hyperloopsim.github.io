@@ -131,12 +131,12 @@
 
 	scene.add( new THREE.AmbientLight( 0x222222 ) );
 	var light = new THREE.DirectionalLight(0xffffff, 1.5);
-	light.position.set(-100,100,-100);
+	light.position.set(-20,20,-20);
 	light.castShadow = true;
 	light.shadowCameraVisible = true;
 	
-	light.shadowCameraNear = 160;
-	light.shadowCameraFar = 180;
+	light.shadowCameraNear = 20;
+	light.shadowCameraFar = 30;
 	light.shadowCameraLeft = -5;
 	light.shadowCameraRight = 5;
 	light.shadowCameraTop = 5;
