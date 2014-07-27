@@ -17,7 +17,7 @@
       
     var scene, camera, renderer;
     var geometry, material, mesh;
-    var plane;
+    var plane, light;
 
 
     init();
@@ -130,7 +130,7 @@
         camera.position.z = 50;
 
 	scene.add( new THREE.AmbientLight( 0x222222 ) );
-	var light = new THREE.DirectionalLight(0xffffff, 1.5);
+	light = new THREE.DirectionalLight(0xffffff, 1.5);
 	light.position.set(-50,50,0);
 	light.castShadow = true;
 	light.shadowCameraVisible = true;
@@ -186,12 +186,12 @@
   
 	loader = new THREE.JSONLoader();
 	loader.load( 'hloop2.json', function ( geometry ) {
-          	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0x0000ff} ) )
+          	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0x0000ff} ) );
+          	plane.castShadow = true;
           	scene.add( plane );
           	plane.scale.set(3,3,3);
           	plane.rotation.x = Math.PI/2;
           	plane.position.y = 10;
-          	plane.position.z = 100;
         });
         //plane.position.y = 15;
         //plane.scale.set(2,2,2);
@@ -221,6 +221,7 @@
         //mesh.rotation.x += 0.01;
         //mesh.rotation.y += 0.02;
 	plane.position.z -= 0.5;
+	light.target.position.z -=0.5;
 
         renderer.render( scene, camera );
 
