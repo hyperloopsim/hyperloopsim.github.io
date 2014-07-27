@@ -137,8 +137,8 @@
 	
 	light.shadowCameraNear = 60;
 	light.shadowCameraFar = 80;
-	light.shadowCameraLeft = -50;
-	light.shadowCameraRight = 50;
+	light.shadowCameraLeft = -20;
+	light.shadowCameraRight = 20;
 	light.shadowCameraTop = 10;
 	light.shadowCameraBottom = -10;
 	
@@ -150,7 +150,7 @@
         groundTxtr.wrapS = groundTxtr.wrapT = THREE.RepeatWrapping;
         groundTxtr.repeat.set( 1000, 1000 );
         
-        groundMat = new THREE.MeshLambertMaterial( { /*map:groundTxtr*/ color: 0x00ff00 } );
+        groundMat = new THREE.MeshLambertMaterial( { map:groundTxtr } );
         
         ground = new THREE.Mesh(groundGeom, groundMat);
         ground.receiveShadow = true;
