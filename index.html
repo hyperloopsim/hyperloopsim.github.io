@@ -156,7 +156,7 @@
         ground.receiveShadow = true;
         scene.add(ground);
 
-        for(var i = 0; i < 1; i++) {
+        for(var i = 0; i < 100; i++) {
             var stories = Math.floor((Math.random() * 5) + 2);
             var side = Math.floor((Math.random() * 2) + 0);
             mesh = new THREE.Mesh( createGeometry(stories), createMaterial(stories) );
@@ -201,7 +201,7 @@
         
         renderer.setSize( window.innerWidth, window.innerHeight );
         
-        renderer.shadowMapEnabled = true;
+        //renderer.shadowMapEnabled = true;
         //renderer.shadowMapSoft = true;
 
         document.body.appendChild( renderer.domElement );
